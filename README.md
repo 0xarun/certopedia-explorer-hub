@@ -29,8 +29,8 @@
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/0xarun/certihunt
-cd certihunt
+git clone https://github.com/0xarun/certopedia-explorer-hub/
+cd certopedia-explorer-hub
 ```
 
 ### 2. Install Dependencies
@@ -67,7 +67,7 @@ Steps to Contribute:
 1. Fork the repo
 2. Clone your fork:
    ```bash
-   git clone https://github.com/0xarun/certihunt
+   git clone https://github.com/0xarun/certopedia-explorer-hub/
    ```
 3. Create a new branch, make changes
 4. Commit with clear messages
@@ -88,7 +88,7 @@ See the LICENSE file for details.
 ## 👨‍💻 Authors
 
 - Athil S – @Athils
-- Arun Kumar – @0xarun
+- ArunKumar R – [@0xarun](https://x.com/0xarun)
 ---
 
 ## 💡 Future Roadmap
