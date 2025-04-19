@@ -6,7 +6,6 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useAuth } from '@/providers/AuthProvider';
 import LoginButtons from './LoginButtons';
-import UserMenu from './UserMenu';
 
 interface NavbarProps {
   searchQuery: string;
@@ -17,6 +16,8 @@ const Navbar: React.FC<NavbarProps> = ({
   searchQuery,
   setSearchQuery
 }) => {
+  const { user, signOut } = useAuth();
+
   return (
     <nav className="sticky top-0 z-50 w-full bg-white shadow-sm py-4">
       <div className="container mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
@@ -44,8 +45,13 @@ const Navbar: React.FC<NavbarProps> = ({
           <Button asChild>
             <Link to="/explore">Explore All</Link>
           </Button>
-          <UserMenu />
-          {!useAuth().user && <LoginButtons />}
+          {user ? (
+            <Button variant="outline" onClick={signOut}>
+              Sign Out
+            </Button>
+          ) : (
+            <LoginButtons />
+          )}
         </div>
       </div>
     </nav>
