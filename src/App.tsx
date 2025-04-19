@@ -12,6 +12,7 @@ import CertificationDetailsPage from "@/pages/CertificationDetailsPage";
 import ProvidersPage from "@/pages/ProvidersPage";
 import AuthCallback from "@/pages/AuthCallback";
 import NotFound from "@/pages/NotFound";
+import FavoritesPage from "@/pages/FavoritesPage";
 
 const queryClient = new QueryClient();
 
@@ -27,6 +28,7 @@ const App = () => (
             <Route path="/explore" element={<ExplorePage />} />
             <Route path="/certification/:id" element={<CertificationDetailsPage />} />
             <Route path="/providers" element={<ProvidersPage />} />
+            <Route path="/favorites" element={<FavoritesPage />} />
             <Route path="/auth/callback" element={<AuthCallback />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

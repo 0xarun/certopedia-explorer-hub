@@ -6,6 +6,7 @@ import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Certification } from '@/types';
+import FavoriteButton from './FavoriteButton';
 
 interface CertificationCardProps {
   certification: Certification;
@@ -55,9 +56,10 @@ const CertificationCard: React.FC<CertificationCardProps> = ({
             alt={title}
             className="w-full h-full object-cover"
           />
-          <div className="absolute top-2 right-2">
+          <div className="absolute top-2 left-2">
             <Badge className={getProviderColor(provider)}>{provider}</Badge>
           </div>
+          <FavoriteButton certificationId={id} />
         </div>
       </CardHeader>
       

@@ -1,11 +1,18 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Search } from 'lucide-react';
+import { Search, LogOut } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useAuth } from '@/providers/AuthProvider';
 import LoginButtons from './LoginButtons';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 interface NavbarProps {
   searchQuery: string;
@@ -46,9 +53,25 @@ const Navbar: React.FC<NavbarProps> = ({
             <Link to="/explore">Explore All</Link>
           </Button>
           {user ? (
-            <Button variant="outline" onClick={signOut}>
-              Sign Out
-            </Button>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Avatar className="cursor-pointer hover:opacity-80">
+                  <AvatarImage src={user.user_metadata.avatar_url} />
+                  <AvatarFallback>{user.email?.charAt(0).toUpperCase()}</AvatarFallback>
+                </Avatar>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <DropdownMenuItem asChild>
+                  <Link to="/favorites" className="flex items-center">
+                    Favorites
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={signOut} className="flex items-center">
+                  <LogOut className="mr-2 h-4 w-4" />
+                  Sign Out
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           ) : (
             <LoginButtons />
           )}
@@ -56,6 +79,6 @@ const Navbar: React.FC<NavbarProps> = ({
       </div>
     </nav>
   );
-}
+};
 
 export default Navbar;
