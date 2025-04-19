@@ -1,73 +1,107 @@
-# Welcome to your Lovable project
+# CertiHunt 🎓🔍
 
-## Project info
+**CertiHunt** is an **open-source certification directory platform** that helps users discover and explore online certification programs — all in one place. CertiHunt makes it easy to search, filter, and access them.
 
-**URL**: https://lovable.dev/projects/d7183bc6-2f37-4c28-81f0-2c26e2a5b8fb
+> 🚀 **Live Demo:** [https://certihunt.vercel.app](https://certihunt.vercel.app)
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## ✨ Features
 
-**Use Lovable**
+- 🗂️ Curated directory of popular and upcoming certifications
+- 🔍 Easy search and category filters
+- 📌 Discover certifications from various domains
+- 🔐 Google OAuth login via Supabase
+- 🌐 Fully responsive, modern UI
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/d7183bc6-2f37-4c28-81f0-2c26e2a5b8fb) and start prompting.
+---
 
-Changes made via Lovable will be committed automatically to this repo.
+## 🛠 Tech Stack
 
-**Use your preferred IDE**
+- **Frontend:** React + Vite + Tailwind CSS  
+- **Backend / Auth:** Supabase (Google OAuth)  
+- **Hosting:** Vercel
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+---
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## 📦 Installation & Setup
 
-Follow these steps:
+### 1. Clone the Repository
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+```bash
+git clone https://github.com/0xarun/certopedia-explorer-hub/
+cd certopedia-explorer-hub
+```
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+### 2. Install Dependencies
 
-# Step 3: Install the necessary dependencies.
-npm i
+```bash
+npm install
+```
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+### 3. Setup Environment Variables
+
+Create a `.env` file in the root folder and add your Supabase project details:
+
+```env
+VITE_SUPABASE_URL=your_supabase_project_url
+VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+```
+
+### 4. Run the Development Server
+
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The app will be running locally at:
+👉 http://localhost:8080
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+---
 
-**Use GitHub Codespaces**
+## 🤝 Contributing
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+We welcome contributions from everyone!
 
-## What technologies are used for this project?
+Steps to Contribute:
+1. Fork the repo
+2. Clone your fork:
+   ```bash
+   git clone https://github.com/0xarun/certopedia-explorer-hub/
+   ```
+3. Create a new branch, make changes
+4. Commit with clear messages
+5. Push and submit a Pull Request
 
-This project is built with:
+Run `npm run dev` to test locally before submitting.
+Check out `CONTRIBUTING.md` for more details.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+---
 
-## How can I deploy this project?
+## 🧾 License
 
-Simply open [Lovable](https://lovable.dev/projects/d7183bc6-2f37-4c28-81f0-2c26e2a5b8fb) and click on Share -> Publish.
+This project is licensed under the MIT License.
+See the LICENSE file for details.
 
-## Can I connect a custom domain to my Lovable project?
+---
 
-Yes, you can!
+## 👨‍💻 Authors
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+- Athil S – @Athils
+- ArunKumar R – [@0xarun](https://x.com/0xarun)
+---
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+## 💡 Future Roadmap
+
+- Personal dashboard for users
+- Add certification progress tracking
+- User reviews & ratings
+- Multi-provider login support
+- Admin dashboard to manage entries
+
+---
+
+## 📬 Contact
+
+Email: arundhanush4771@gmail.com 
+ArunKumar R – [@0xarun](https://x.com/0xarun)
