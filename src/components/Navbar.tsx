@@ -5,6 +5,7 @@ import { Search } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useAuth } from '@/providers/AuthProvider';
+import LoginButtons from './LoginButtons';
 
 interface NavbarProps {
   searchQuery: string;
@@ -15,7 +16,7 @@ const Navbar: React.FC<NavbarProps> = ({
   searchQuery,
   setSearchQuery
 }) => {
-  const { user, signInWithGoogle, signOut } = useAuth();
+  const { user, signOut } = useAuth();
 
   return (
     <nav className="sticky top-0 z-50 w-full bg-white shadow-sm py-4">
@@ -49,14 +50,12 @@ const Navbar: React.FC<NavbarProps> = ({
               Sign Out
             </Button>
           ) : (
-            <Button onClick={signInWithGoogle}>
-              Sign in with Google
-            </Button>
+            <LoginButtons />
           )}
         </div>
       </div>
     </nav>
   );
-};
+}
 
 export default Navbar;
