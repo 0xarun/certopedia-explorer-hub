@@ -27,10 +27,17 @@ export default function AuthCallback() {
             });
 
             if (sessionError) throw sessionError;
+            
+            // Clear the hash from the URL
+            window.location.hash = '';
+            
+            // Navigate to home page
+            navigate('/');
+            return;
           }
         }
 
-        // Get the current session
+        // If no hash parameters, try to get the session
         const { data: { session }, error: sessionError } = await supabase.auth.getSession();
         
         if (sessionError) {
