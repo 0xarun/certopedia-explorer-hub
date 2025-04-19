@@ -103,6 +103,5 @@ See the LICENSE file for details.
 
 ## 📬 Contact
 
-Found a bug or have an idea to improve CertiHunt?
-Create an Issue or email the authors.
-Let's build this together 🚀❤️
+Email: arundhanush4771@gmail.com 
+ArunKumar R – [@0xarun](https://x.com/0xarun)
