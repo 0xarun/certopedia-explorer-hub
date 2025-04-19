@@ -1,44 +1,27 @@
-
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import FeaturedCertifications from '@/components/FeaturedCertifications';
 import { certifications } from '@/data/certifications';
-
 const Index = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const navigate = useNavigate();
-  
   const handleSearch = () => {
     if (searchQuery.trim()) {
       navigate(`/explore?search=${encodeURIComponent(searchQuery.trim())}`);
     }
   };
-  
   const handleTagClick = (tag: string) => {
     navigate(`/explore?tag=${encodeURIComponent(tag)}`);
   };
-
-  return (
-    <div className="min-h-screen flex flex-col">
-      <Navbar 
-        searchQuery={searchQuery} 
-        setSearchQuery={setSearchQuery} 
-      />
+  return <div className="min-h-screen flex flex-col">
+      <Navbar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
       
       <main className="flex-grow">
-        <Hero 
-          searchQuery={searchQuery}
-          setSearchQuery={setSearchQuery}
-          onSearch={handleSearch}
-        />
+        <Hero searchQuery={searchQuery} setSearchQuery={setSearchQuery} onSearch={handleSearch} />
         
-        <FeaturedCertifications 
-          certifications={certifications}
-          onTagClick={handleTagClick}
-        />
+        <FeaturedCertifications certifications={certifications} onTagClick={handleTagClick} />
         
         <section className="py-16 bg-gray-50">
           <div className="container mx-auto px-4 text-center">
@@ -82,7 +65,7 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="mb-4 md:mb-0">
-              <h2 className="text-2xl font-bold">Certopedia</h2>
+              <h2 className="text-2xl font-bold">CertiHunt</h2>
               <p className="text-gray-400">Your certification discovery platform</p>
             </div>
             <nav className="flex flex-wrap gap-6">
@@ -97,8 +80,6 @@ const Index = () => {
           </div>
         </div>
       </footer>
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
