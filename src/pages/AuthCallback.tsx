@@ -29,10 +29,10 @@ export default function AuthCallback() {
             if (sessionError) throw sessionError;
             
             // Clear the hash from the URL
-            window.location.hash = '';
+            window.history.replaceState({}, document.title, window.location.pathname);
             
             // Navigate to home page
-            navigate('/');
+            navigate('/', { replace: true });
             return;
           }
         }
@@ -46,7 +46,7 @@ export default function AuthCallback() {
         }
 
         if (session) {
-          navigate('/');
+          navigate('/', { replace: true });
         } else {
           setError('No session found. Please try logging in again.');
         }
