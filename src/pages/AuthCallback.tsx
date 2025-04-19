@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
+import { Alert, AlertDescription } from '@/components/ui/alert';
+import { AlertCircle } from 'lucide-react';
 
 export default function AuthCallback() {
   const navigate = useNavigate();
@@ -9,10 +11,30 @@ export default function AuthCallback() {
   useEffect(() => {
     const handleAuthCallback = async () => {
       try {
-        const { data: { session }, error } = await supabase.auth.getSession();
+        // Get the URL hash which contains the auth tokens
+        const hash = window.location.hash;
+        if (hash) {
+          // Parse the hash to get the access token and refresh token
+          const params = new URLSearchParams(hash.substring(1));
+          const accessToken = params.get('access_token');
+          const refreshToken = params.get('refresh_token');
+
+          if (accessToken && refreshToken) {
+            // Set the session using the tokens
+            const { error: sessionError } = await supabase.auth.setSession({
+              access_token: accessToken,
+              refresh_token: refreshToken,
+            });
+
+            if (sessionError) throw sessionError;
+          }
+        }
+
+        // Get the current session
+        const { data: { session }, error: sessionError } = await supabase.auth.getSession();
         
-        if (error) {
-          setError(error.message);
+        if (sessionError) {
+          setError(sessionError.message);
           return;
         }
 
@@ -22,8 +44,8 @@ export default function AuthCallback() {
           setError('No session found. Please try logging in again.');
         }
       } catch (err) {
-        setError('An unexpected error occurred. Please try again.');
         console.error('Auth callback error:', err);
+        setError('An unexpected error occurred. Please try again.');
       }
     };
 
@@ -33,7 +55,12 @@ export default function AuthCallback() {
   if (error) {
     return (
       <div className="flex min-h-screen items-center justify-center">
-        <div className="text-red-500 text-lg">{error}</div>
+        <Alert variant="destructive">
+          <AlertCircle className="h-4 w-4" />
+          <AlertDescription>
+            {error}
+          </AlertDescription>
+        </Alert>
       </div>
     );
   }
