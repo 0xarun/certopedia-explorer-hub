@@ -22,7 +22,25 @@ export type Provider =
   | 'edX'
   | 'Udacity'
   | 'Udemy'
-  | 'Pluralsight';
+  | 'Pluralsight'
+  | '(ISC)²'
+  | 'Scrum.org'
+  | 'Meta'
+  | 'Linux Foundation'
+  | 'CompTIA'
+  | 'Salesforce'
+  | 'Oracle'
+  | 'PMI'
+  | 'Cisco'
+  | 'EC-Council'
+  | 'MongoDB'
+  | 'Unity'
+  | 'Databricks'
+  | 'Scrum Alliance'
+  | 'ISACA'
+  | 'HashiCorp'
+  | 'Confluent'
+  | 'CFA Institute';
 
 export type Level = 
   | 'Beginner'
