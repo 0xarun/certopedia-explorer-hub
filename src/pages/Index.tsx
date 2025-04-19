@@ -76,7 +76,7 @@ const Index = () => {
             </nav>
           </div>
           <div className="border-t border-gray-800 mt-8 pt-6 text-center text-gray-500">
-            <p>&copy; {new Date().getFullYear()} Certopedia. All rights reserved.</p>
+            <p>&copy; {new Date().getFullYear()} CertiHunt. All rights reserved.</p>
           </div>
         </div>
       </footer>
