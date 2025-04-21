@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Sliders, LayoutGrid, List } from 'lucide-react';
@@ -130,25 +129,6 @@ const ExplorePage = () => {
                   Filters
                 </Button>
                 
-                <div className="flex items-center bg-white border rounded-md">
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    className={`rounded-none ${viewMode === 'grid' ? 'bg-gray-100' : ''}`}
-                    onClick={() => setViewMode('grid')}
-                  >
-                    <LayoutGrid className="h-4 w-4" />
-                  </Button>
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    className={`rounded-none ${viewMode === 'list' ? 'bg-gray-100' : ''}`}
-                    onClick={() => setViewMode('list')}
-                  >
-                    <List className="h-4 w-4" />
-                  </Button>
-                </div>
-                
                 <select
                   className="border rounded-md py-1 px-2 text-sm bg-white"
                   value={sortBy}
@@ -186,12 +166,6 @@ const ExplorePage = () => {
               </aside>
               
               <div className="flex-grow">
-                <div className="bg-white rounded-lg p-4 shadow-sm mb-4">
-                  <p className="text-sm text-gray-500">
-                    Showing <span className="font-semibold">{sortedCertifications.length}</span> certification{sortedCertifications.length !== 1 ? 's' : ''}
-                  </p>
-                </div>
-                
                 <CertificationList 
                   certifications={sortedCertifications}
                   onTagClick={handleTagClick}
@@ -205,7 +179,7 @@ const ExplorePage = () => {
       
       <footer className="bg-gray-900 text-white py-6">
         <div className="container mx-auto px-4 text-center">
-          <p className="text-gray-400">&copy; {new Date().getFullYear()} Certopedia. All rights reserved.</p>
+          <p className="text-gray-400">&copy; {new Date().getFullYear()} CertiHunt. All rights reserved.</p>
         </div>
       </footer>
     </div>

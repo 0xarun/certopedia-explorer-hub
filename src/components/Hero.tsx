@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Search } from 'lucide-react';
 import { Input } from '@/components/ui/input';
@@ -51,8 +50,8 @@ const Hero: React.FC<HeroProps> = ({ searchQuery, setSearchQuery, onSearch }) =>
           </Button>
         </form>
         
-        <div className="mt-8 flex flex-wrap justify-center gap-2">
-          <p className="text-gray-200 mr-2">Popular:</p>
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-2">
+          <p className="text-gray-200">Popular:</p>
           <Button variant="outline" size="sm" className="bg-white/10 border-white/20 hover:bg-white/20" onClick={() => setSearchQuery("Data Science")}>
             Data Science
           </Button>

@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Search } from 'lucide-react';
@@ -66,7 +65,7 @@ const ProvidersPage = () => {
       
       <footer className="bg-gray-900 text-white py-6">
         <div className="container mx-auto px-4 text-center">
-          <p className="text-gray-400">&copy; {new Date().getFullYear()} Certopedia. All rights reserved.</p>
+          <p className="text-gray-400">&copy; {new Date().getFullYear()} CertiHunt. All rights reserved.</p>
         </div>
       </footer>
     </div>
