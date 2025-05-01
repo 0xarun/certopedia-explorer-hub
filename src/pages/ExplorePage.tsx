@@ -11,6 +11,37 @@ import CertificationList from '@/components/CertificationList';
 import { certifications, allTags, providers, levels } from '@/data/certifications';
 import { filterCertifications } from '@/utils/filter-utils';
 
+const extractPrice = (priceString: string): number => {
+  // Handle free certifications
+  if (priceString.toLowerCase().includes('free') || priceString === '$0') {
+    return 0;
+  }
+
+  // Handle subscription prices
+  if (priceString.toLowerCase().includes('subscription') || priceString.toLowerCase().includes('month')) {
+    const match = priceString.match(/\$(\d+)/);
+    return match ? parseInt(match[1], 10) : 0;
+  }
+
+  // Clean the price string by removing USD and commas
+  const cleanPrice = priceString.replace(/usd/gi, '').replace(/,/g, '').trim();
+
+  // Handle price ranges (e.g., "$450-$1000" or "$450 USD - $1000 USD")
+  if (cleanPrice.includes('-')) {
+    const matches = cleanPrice.match(/\$(\d+)/g);
+    if (matches && matches.length >= 2) {
+      const prices = matches.map(m => parseInt(m.replace('$', ''), 10));
+      return Math.min(...prices); // Use the minimum price for sorting
+    }
+    const match = cleanPrice.match(/\$(\d+)/);
+    return match ? parseInt(match[1], 10) : 0;
+  }
+
+  // Handle regular prices (e.g., "$100", "$1,000", "$100 USD")
+  const match = cleanPrice.match(/\$(\d+)/);
+  return match ? parseInt(match[1], 10) : 0;
+};
+
 const ExplorePage = () => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -53,9 +84,9 @@ const ExplorePage = () => {
       case 'title-desc':
         return b.title.localeCompare(a.title);
       case 'price-asc':
-        return a.price.localeCompare(b.price);
+        return extractPrice(a.price) - extractPrice(b.price);
       case 'price-desc':
-        return b.price.localeCompare(a.price);
+        return extractPrice(b.price) - extractPrice(a.price);
       default:
         return 0;
     }
@@ -105,10 +136,7 @@ const ExplorePage = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Navbar 
-        searchQuery={searchQuery} 
-        setSearchQuery={setSearchQuery} 
-      />
+      <Navbar />
       
       <main className="flex-grow">
         <div className="bg-gray-50 py-6">

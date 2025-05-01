@@ -390,7 +390,7 @@ export const certifications: Certification[] = [
     tags: ["Cybersecurity", "Leadership", "Risk Management", "Governance"],
     duration: "5 days",
     level: "Expert",
-    price: "$1,000",
+    price: "$1,000 USD",
     image: "https://hrchannels.com/uptalent/attachments/images/20230420/104422516_CISO-la-gi-5.jpg",
     featured: true
   },
