@@ -1,4 +1,3 @@
-
 export interface Certification {
   id: string;
   title: string;
@@ -40,7 +39,8 @@ export type Provider =
   | 'ISACA'
   | 'HashiCorp'
   | 'Confluent'
-  | 'CFA Institute';
+  | 'CFA Institute'
+  | 'Others';
 
 export type Level = 
   | 'Beginner'
@@ -48,3 +48,39 @@ export type Level =
   | 'Advanced'
   | 'Expert'
   | 'All Levels';
+
+export interface User {
+  id: string;
+  name: string;
+  email: string;
+  joinedDate: string;
+  savedCertifications: string[]; // Array of certification IDs
+  role: 'user' | 'admin';
+}
+
+export interface Analytics {
+  totalCertifications: number;
+  totalUsers: number;
+  certificationsByProvider: {
+    provider: Provider;
+    count: number;
+  }[];
+  certificationsByLevel: {
+    level: Level;
+    count: number;
+  }[];
+  certificationsByPriceRange: {
+    range: string;
+    count: number;
+  }[];
+  userGrowth: {
+    date: string;
+    count: number;
+  }[];
+}
+
+export interface AdminDashboardData {
+  analytics: Analytics;
+  users: User[];
+  certifications: Certification[];
+}
